@@ -28,10 +28,15 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       }]
     }
   })
-  .state('categories.itemDetail', {
+  .state('itemDetail', {
     url: '/item-detail/{name}',
-    templateUrl: 'src/data/templates/items_template.html',
-    controller: "DataItemDetailController as itemDetail"
+    templateUrl: 'src/data/templates/items.template.html',
+    controller: "DataItemsController as itemDetail",
+    resolve: {
+      menus: ['MenuDataService','$stateParams', function (MenuDataService,$stateParams) {
+        return MenuDataService.getItemsForCategory($stateParams.name);
+      }]
+    }
   });
 }
 

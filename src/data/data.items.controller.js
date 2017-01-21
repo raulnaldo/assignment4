@@ -2,13 +2,13 @@
 'use strict';
 
 angular.module('Data')
-.controller('DataItemDetailController', DataItemDetailController);
+.controller('DataItemsController', DataItemsController);
 
-DataItemDetailController.$inject = ['data'];
-function DataItemDetailController(data) {
-  var mainList = this;
-  mainList.data=data;
-  console.log('DataItemDetailController',data);
+DataItemsController.$inject = ['menus'];
+function DataItemsController(menus) {
+  var itemDetail = this;
+  itemDetail.data=menus.menu_items;
+  console.log('itemDetail.data',itemDetail.data);
 }
 
 })();

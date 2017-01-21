@@ -8,37 +8,38 @@ angular.module('Data')
 MenuDataService.$inject = ['$http','$q'];
 function MenuDataService($http,$q) {
   var service = this;
-  var deferred = $q.defer();
-  console.log('1');
-  var categories=[];
   service.getAllCategories = function () {
-    console.log('2');
+    var deferred = $q.defer();
+    console.log('--> service.getAllCategories()');
     var response = $http({
         method: "GET",
         url: ('https://davids-restaurant.herokuapp.com/categories.json')
       })
       .then(function(response){
+        console.log('response.data:',response);
         deferred.resolve(response.data);
-        console.log('3',response);
       })
       .catch(function (error) {
         console.log(error);
       });
+      console.log('<-- service.getAllCategories()');
       return deferred.promise;
   };
-  service.getItemsForCategory = function (categoryShortName) {
-    console.log('21');
+  service.getItemsForCategory = function (name) {
+    var deferred = $q.defer();
+    console.log('--> service.getItemsForCategory(',name,')');
     var response = $http({
         method: "GET",
-        url: ('https://davids-restaurant.herokuapp.com/menu_items.json?category='+categoryShortName)
+        url: ('https://davids-restaurant.herokuapp.com/menu_items.json?category=' + name)
       })
       .then(function(response){
+        console.log('response.data.menu_items:',response.data);
         deferred.resolve(response.data);
-        console.log('22',response);
       })
       .catch(function (error) {
         console.log(error);
       });
+      console.log('<-- service.getItemsForCategory()');
       return deferred.promise;
   };
 }

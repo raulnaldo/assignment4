@@ -7,8 +7,10 @@
   </head>
   <body>
 
+    <!-- ui-view para ui router -->
     <ui-view></ui-view>
 
+    <!-- Module for showing loading step -->
     <loading-spinner></loading-spinner>
 
 
@@ -26,16 +28,12 @@
     <script src="src/routes.js"></script>
     <!-- 'ShoppingList' module artifacts-->
     <script src="src/menuapp/main-menuapp.controller.js"></script>
-    <script src="src/data/menudata.service.js"></script>
-    <script src="src/data/categories.component.js"></script>
 
-    <!-- 'ShoppingList' module artifacts
-    <script src="src/shoppinglist/shoppinglist.component.js"></script>
-    <script src="src/shoppinglist/main-shoppinglist.controller.js"></script>
-    <script src="src/shoppinglist/shoppinglist.service.js"></script>
-    <script src="src/shoppinglist/item-detail.controller.js"></script>
-    -->
-
+    <!-- 'data' module artifacts-->
+    <script src="src/data/data.categories.component.js"></script>
+    <script src="src/data/data.menudata.service.js"></script>
+    <script src="src/data/data.items.controller.js"></script>
+    <script src="src/data/data.items.component.js"></script>    
     <!-- 'Spinner' module artifacts -->
     <script src="src/spinner/loadingspinner.component.js"></script>
   </body>

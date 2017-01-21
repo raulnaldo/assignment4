@@ -6,9 +6,9 @@ angular.module('MenuApp')
 
 MainMenuAppController.$inject = ['data'];
 function MainMenuAppController(data) {
+  console.log('MainMenuAppController',data);
   var mainList = this;
-  mainList.data=data;
-  console.log(4,data);
+  mainList.items=data;
 }
 
 })();

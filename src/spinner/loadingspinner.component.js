@@ -16,18 +16,21 @@ function SpinnerController($rootScope) {
   $ctrl.$onInit = function () {
     var cancel = $rootScope.$on('$stateChangeStart',
     function(event, toState, toParams, fromState, fromParams, options){
+      console.log('-->$ctrl.$stateChangeStart');
       $ctrl.showSpinner = true;
     });
     cancellers.push(cancel);
 
     cancel = $rootScope.$on('$stateChangeSuccess',
     function(event, toState, toParams, fromState, fromParams){
+      console.log('-->$ctrl.$stateChangeSuccess');
       $ctrl.showSpinner = false;
     });
     cancellers.push(cancel);
 
     cancel = $rootScope.$on('$stateChangeError',
     function(event, toState, toParams, fromState, fromParams, error){
+      console.log('-->$ctrl.$stateChangeError');
       $ctrl.showSpinner = false;
     });
     cancellers.push(cancel);
