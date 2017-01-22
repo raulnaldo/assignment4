@@ -16,10 +16,6 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   // Home page
   .state('home', {
     url: '/',
-    templateUrl: 'src/menuapp/templates/home.template.html'
-  })
-  .state('categories', {
-    url: '/categories',
     templateUrl: 'src/data/templates/categories.template.html',
     controller: 'MainMenuAppController as mainList',
     resolve: {
@@ -28,8 +24,8 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       }]
     }
   })
-  .state('itemDetail', {
-    url: '/item-detail/{name}',
+  .state('categories', {
+    url: '/categories/{name}',
     templateUrl: 'src/data/templates/items.template.html',
     controller: "DataItemsController as itemDetail",
     resolve: {
@@ -37,7 +33,12 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
         return MenuDataService.getItemsForCategory($stateParams.name);
       }]
     }
-  });
+  })
+  .state('categories.items', {
+    url: '/item-detail/{itemId}',
+    templateUrl: 'src/data/templates/items.detail.template.html',
+    controller: "ItemDeltailDescriptionController as itemDetDescController"
+  }) ;
 }
 
 })();

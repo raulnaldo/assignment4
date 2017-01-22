@@ -1,6 +1,6 @@
-<span>Aqui el detelle de la categoria</span>
 <ul>
-  <li ng-repeat="menuId in $ctrl.data" >
-    <a ui-sref="itemDetail({id: $index})"> {{ menuId.name }}</a>    
+  <li ng-repeat="menuId in $ctrl.data" ui-sref="categories.items({itemId: $index})">
+    {{ menuId.name }}
   </li>
 </ul>
+<ui-view></ui-view>
