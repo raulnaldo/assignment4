@@ -25,15 +25,15 @@ function MenuDataService($http,$q) {
       console.log('<-- service.getAllCategories()');
       return deferred.promise;
   };
-  service.getItemsForCategory = function (name) {
+  service.getItemsForCategory = function (categoryShortName) {
     var deferred = $q.defer();
-    console.log('--> service.getItemsForCategory(',name,')');
+    console.log('--> service.getItemsForCategory(',categoryShortName,')');
     var response = $http({
         method: "GET",
-        url: ('https://davids-restaurant.herokuapp.com/menu_items.json?category=' + name)
+        url: ('https://davids-restaurant.herokuapp.com/menu_items.json?category=' + categoryShortName)
       })
       .then(function(response){
-        console.log('response.data.menu_items:',response.data);
+        console.log('response.data:',response.data);
         deferred.resolve(response.data);
       })
       .catch(function (error) {

@@ -1,5 +1,5 @@
 <ul>
   <li ng-repeat="item in $ctrl.items" >
-    <a ui-sref="categories({name: item.short_name})" class="list-group-item"> {{ item.name }}</a>
+    <a ui-sref="categories({categoryShortName: item.short_name})" class="list-group-item"> {{ item.name }}</a>
   </li>
 </ul>

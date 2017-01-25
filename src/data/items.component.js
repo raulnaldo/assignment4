@@ -2,10 +2,11 @@
 'use strict';
 
 angular.module('Data')
-.component('itemDetail', {
+.component('items', {
   templateUrl: 'src/data/templates/items.component.html',
   bindings: {
-    data: '<'
+    data: '<',
+    category: '<'
   }
 });
 })();
