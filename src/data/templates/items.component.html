@@ -1,7 +1,12 @@
 <div class="container">
+<div>
+  <h1 class="text-center">{{$ctrl.category.name}}</h1>
+</div>
+
 <div class="row">
+
   <div class="col-lg-6">
-    <h1 class="text-center">{{$ctrl.category.name}}</h1>
+
     <ul>
       <li ng-repeat="menuId in $ctrl.data">
         <a ui-sref="categories.items({itemId: $index})" class="list-group-item"> {{ menuId.name }} </a>
