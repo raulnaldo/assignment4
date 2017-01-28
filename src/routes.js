@@ -16,6 +16,11 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   // Home page
   .state('home', {
     url: '/',
+    templateUrl: 'src/menuapp/templates/home.template.html',
+  })
+
+  .state('categories', {
+    url: '/categories',
     templateUrl: 'src/data/templates/categories.template.html',
     controller: 'MainMenuAppController as mainList',
     resolve: {
@@ -24,8 +29,8 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       }]
     }
   })
-  .state('categories', {
-    url: '/categories/{categoryShortName}',
+  .state('items', {
+    url: '/items/{categoryShortName}',
     templateUrl: 'src/data/templates/items.template.html',
     controller: "ItemsController as itemCrl",
     resolve: {
@@ -34,7 +39,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       }]
     }
   })
-  .state('categories.items', {
+  .state('items.items', {
     url: '/item-detail/{itemId}',
     templateUrl: 'src/data/templates/items.detail.template.html',
     controller: "ItemDeltailDescriptionController as itemDetDescController"
